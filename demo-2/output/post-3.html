@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, initial-scale=1.0">
+  <title>Multiequipos | Post 3 valores de servicio</title>
+  <style>
+    @font-face {
+      font-family: 'Jost';
+      src: url('../fonts/Jost-VariableFont_wght.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Jost';
+      src: url('../fonts/Jost-Italic-VariableFont_wght.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: italic;
+    }
+
+    :root {
+      --brand-white: #ffffff;
+      --brand-dark: #393939;
+      --brand-yellow: #f8af02;
+      --brand-gray: #b3b3b3;
+      --brand-red: #de1f14;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: 'Jost', sans-serif;
+      background: var(--brand-white);
+    }
+
+    .post {
+      position: relative;
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      background: var(--brand-dark);
+      color: var(--brand-white);
+    }
+
+    .hero {
+      position: absolute;
+      inset: 0 0 196px;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(57, 57, 57, 0.16) 0%, rgba(57, 57, 57, 0.22) 35%, rgba(57, 57, 57, 0.62) 100%),
+        linear-gradient(90deg, rgba(57, 57, 57, 0.22) 0%, rgba(57, 57, 57, 0.08) 40%, rgba(57, 57, 57, 0.24) 100%);
+    }
+
+    .top-accent {
+      position: absolute;
+      top: 0;
+      left: 340px;
+      width: 400px;
+      height: 72px;
+      background: var(--brand-yellow);
+      z-index: 2;
+    }
+
+    .copy {
+      position: absolute;
+      inset: 112px 74px 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 3;
+    }
+
+    .copy-top {
+      display: grid;
+      gap: 22px;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .kicker {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1;
+      font-weight: 620;
+      color: rgba(255, 255, 255, 0.94);
+      letter-spacing: 0.01em;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 880px;
+      font-size: 82px;
+      line-height: 0.94;
+      font-weight: 860;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      text-wrap: balance;
+      text-shadow: 0 5px 22px rgba(0, 0, 0, 0.24);
+    }
+
+    .copy-bottom {
+      display: grid;
+      gap: 14px;
+      justify-items: center;
+      text-align: center;
+      padding: 0 46px;
+    }
+
+    .support {
+      margin: 0;
+      max-width: 860px;
+      font-size: 28px;
+      line-height: 1.22;
+      font-weight: 470;
+      color: rgba(255, 255, 255, 0.98);
+      text-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+    }
+
+    .support strong {
+      font-weight: 760;
+    }
+
+    .footer {
+      position: absolute;
+      inset: auto 0 0;
+      height: 196px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 247, 247, 0.98)),
+        var(--brand-white);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 300px;
+      align-items: center;
+      column-gap: 0;
+      padding: 28px 42px 24px;
+      z-index: 4;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 40%, rgba(57, 57, 57, 0.03), transparent 24%),
+        radial-gradient(circle at 80% 70%, rgba(57, 57, 57, 0.025), transparent 22%);
+      pointer-events: none;
+    }
+
+    .feature {
+      position: relative;
+      min-height: 106px;
+      padding: 10px 22px 10px 28px;
+      display: grid;
+      align-content: center;
+      gap: 6px;
+      z-index: 1;
+    }
+
+    .feature::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 18px;
+      bottom: 18px;
+      width: 8px;
+      background: var(--brand-yellow);
+    }
+
+    .feature-label {
+      display: block;
+      font-size: 16px;
+      line-height: 1;
+      font-weight: 760;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--brand-dark);
+    }
+
+    .feature-text {
+      display: block;
+      font-size: 20px;
+      line-height: 1.14;
+      font-weight: 430;
+      color: var(--brand-dark);
+    }
+
+    .feature-text strong {
+      font-weight: 760;
+    }
+
+    .brand-lockup {
+      position: relative;
+      display: grid;
+      justify-items: end;
+      z-index: 1;
+    }
+
+    .brand-lockup img {
+      width: 240px;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <article class="post" id="post-3">
+    <div class="hero">
+      <img
+        src="../input-media/pexels-rezwan-1078884.jpg"
+        alt="Excavadora en obra de construcción"
+      >
+    </div>
+
+    <div class="top-accent" aria-hidden="true"></div>
+
+    <section class="copy">
+      <div class="copy-top">
+        <h1>EL EQUIPO QUE ES</h1>
+        <p class="kicker">en el tiempo justo</p>
+      </div>
+
+      <div class="copy-bottom">
+        <p class="support">
+          Con Multiequipos recibes el equipo correcto para tu obra,
+          <strong>puntual y en excelente estado</strong>.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="feature">
+        <span class="feature-label">Justo</span>
+        <span class="feature-text"><strong>El equipo</strong> que necesitas</span>
+      </div>
+
+      <div class="feature">
+        <span class="feature-label">Puntual</span>
+        <span class="feature-text"><strong>Entrega</strong> en el tiempo justo</span>
+      </div>
+
+      <div class="feature">
+        <span class="feature-label">Excelente</span>
+        <span class="feature-text"><strong>Equipos</strong> en excelente estado</span>
+      </div>
+
+      <div class="brand-lockup">
+        <img
+          src="../logo-1/FA934584-BD56-40E6-8696-41DF6E62FF71-export.png"
+          alt="Logo Multiequipos"
+        >
+      </div>
+    </footer>
+  </article>
+</body>
+</html>

@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiequipos | Post fundación y ubicación</title>
+  <style>
+    @font-face {
+      font-family: 'Jost';
+      src: url('../fonts/Jost-VariableFont_wght.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Jost';
+      src: url('../fonts/Jost-Italic-VariableFont_wght.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: italic;
+    }
+
+    :root {
+      --brand-white: #ffffff;
+      --brand-dark: #393939;
+      --brand-yellow: #f8af02;
+      --brand-gray: #b3b3b3;
+      --brand-red: #de1f14;
+      --shadow: 0 28px 60px rgba(0, 0, 0, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 24px;
+      background:
+        radial-gradient(circle at top, rgba(248, 175, 2, 0.14), transparent 30%),
+        linear-gradient(180deg, #f1f1f1 0%, #d9d9d9 100%);
+      font-family: 'Jost', sans-serif;
+      color: var(--brand-white);
+    }
+
+    .posts-page {
+      display: grid;
+      gap: 24px;
+    }
+
+    .post {
+      position: relative;
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(57, 57, 57, 0.93) 0%, rgba(57, 57, 57, 0.88) 35%, rgba(32, 32, 32, 0.95) 100%),
+        #393939;
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .post::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(248, 175, 2, 0.14) 0 18%, transparent 18% 100%),
+        radial-gradient(circle at 20% 18%, rgba(248, 175, 2, 0.2), transparent 20%),
+        radial-gradient(circle at 82% 72%, rgba(255, 255, 255, 0.08), transparent 18%);
+      z-index: -4;
+    }
+
+    .brand-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.11;
+      z-index: -3;
+    }
+
+    .brand-pattern svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .photo-panel {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 50.5%;
+      height: 100%;
+      background:
+        linear-gradient(180deg, rgba(57, 57, 57, 0.1), rgba(57, 57, 57, 0.55)),
+        linear-gradient(270deg, rgba(57, 57, 57, 0.24) 0%, rgba(57, 57, 57, 0.92) 94%);
+      clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .photo-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.95) contrast(1.02);
+      mix-blend-mode: luminosity;
+      opacity: 0.92;
+    }
+
+    .photo-panel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(57, 57, 57, 0.92) 0%, rgba(57, 57, 57, 0.18) 36%, rgba(57, 57, 57, 0.58) 100%),
+        linear-gradient(180deg, rgba(248, 175, 2, 0.18), transparent 18%, rgba(57, 57, 57, 0.45) 88%);
+    }
+
+    .content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      padding: 72px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 32px;
+    }
+
+    .logo-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 18px 22px;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 20px;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.14);
+    }
+
+    .logo-chip img {
+      width: 286px;
+      height: auto;
+      display: block;
+    }
+
+    .eyebrow {
+      align-self: center;
+      padding-top: 10px;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .main {
+      max-width: 575px;
+      display: grid;
+      gap: 28px;
+    }
+
+    .accent-line {
+      width: 118px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--brand-yellow);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 108px;
+      line-height: 0.92;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: -0.035em;
+    }
+
+    .year {
+      color: var(--brand-yellow);
+      display: block;
+    }
+
+    .copy {
+      max-width: 500px;
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.24;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+    }
+
+    .location-card {
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 20px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 22px;
+    }
+
+    .location-icon {
+      width: 58px;
+      height: 58px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: var(--brand-yellow);
+      color: var(--brand-dark);
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    .location-label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .location-value {
+      display: block;
+      font-size: 34px;
+      line-height: 1.08;
+      font-weight: 740;
+      color: var(--brand-white);
+    }
+
+    .footer {
+      display: grid;
+      gap: 18px;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(248, 175, 2, 0.82), rgba(255, 255, 255, 0.08));
+    }
+
+    .footer-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      font-size: 21px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .footer-meta strong {
+      color: var(--brand-white);
+      font-weight: 750;
+    }
+
+    .website {
+      color: var(--brand-red);
+    }
+
+    .post-alt {
+      background:
+        linear-gradient(180deg, #f6f0e4 0%, #efe6d3 100%);
+      color: var(--brand-dark);
+    }
+
+    .post-alt::before {
+      background:
+        radial-gradient(circle at 84% 14%, rgba(248, 175, 2, 0.34), transparent 20%),
+        linear-gradient(180deg, rgba(57, 57, 57, 0.02), rgba(57, 57, 57, 0.08));
+      z-index: -5;
+    }
+
+    .post-alt .brand-pattern {
+      opacity: 0.14;
+      z-index: -4;
+    }
+
+    .post-alt .brand-pattern polygon:first-child {
+      fill: rgba(248,175,2,0.19);
+    }
+
+    .post-alt .content {
+      padding: 56px;
+      justify-content: flex-start;
+    }
+
+    .post-alt .topbar {
+      align-items: center;
+    }
+
+    .post-alt .eyebrow {
+      color: rgba(57, 57, 57, 0.68);
+      font-size: 18px;
+      padding-top: 0;
+      align-self: auto;
+    }
+
+    .post-alt .main {
+      max-width: none;
+      gap: 24px;
+      margin-top: 82px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .post-alt h1 {
+      font-size: 78px;
+      line-height: 0.95;
+      color: var(--brand-dark);
+      max-width: 760px;
+    }
+
+    .post-alt .copy {
+      max-width: 630px;
+      color: rgba(57, 57, 57, 0.9);
+      font-size: 30px;
+    }
+
+    .post-alt .accent-line {
+      width: 132px;
+    }
+
+    .post-alt .footer {
+      gap: 16px;
+      position: absolute;
+      left: 56px;
+      right: 56px;
+      bottom: 56px;
+    }
+
+    .post-alt .divider {
+      background: linear-gradient(90deg, rgba(57, 57, 57, 0.16), rgba(57, 57, 57, 0.04));
+    }
+
+    .post-alt .footer-meta {
+      color: rgba(57, 57, 57, 0.74);
+    }
+
+    .post-alt .footer-meta strong {
+      color: var(--brand-dark);
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 248px 56px 282px 56px;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.15);
+      z-index: -3;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(57, 57, 57, 0.18), rgba(57, 57, 57, 0.52)),
+        linear-gradient(90deg, rgba(248, 175, 2, 0.18), transparent 36%, rgba(57, 57, 57, 0.2) 100%);
+    }
+
+    .info-ribbon {
+      position: absolute;
+      left: 56px;
+      bottom: 148px;
+      width: 968px;
+      display: grid;
+      grid-template-columns: 1.4fr 0.9fr;
+      gap: 0;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.14);
+      z-index: -2;
+    }
+
+    .info-copy {
+      padding: 42px 42px 46px;
+      background: rgba(57, 57, 57, 0.96);
+      color: var(--brand-white);
+    }
+
+    .info-copy p {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.28;
+      font-weight: 500;
+    }
+
+    .info-location {
+      padding: 42px 38px 46px;
+      background: var(--brand-yellow);
+      color: var(--brand-dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .info-location .location-label {
+      color: rgba(57, 57, 57, 0.72);
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .info-location .location-value {
+      color: var(--brand-dark);
+      font-size: 38px;
+    }
+  </style>
+</head>
+<body>
+  <main class="posts-page">
+    <article class="post" id="post-fundacion-ubicacion">
+      <div class="brand-pattern" aria-hidden="true">
+        <svg viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <g id="me-cube">
+              <polygon points="0,36 31,18 62,36 31,54" fill="rgba(248,175,2,0.14)"/>
+              <polygon points="0,36 31,54 31,90 0,72" fill="rgba(255,255,255,0.06)"/>
+              <polygon points="62,36 31,54 31,90 62,72" fill="rgba(255,255,255,0.11)"/>
+            </g>
+          </defs>
+          <g transform="translate(70 70)">
+            <use href="#me-cube" x="0" y="0"/>
+            <use href="#me-cube" x="94" y="0"/>
+            <use href="#me-cube" x="188" y="0"/>
+            <use href="#me-cube" x="282" y="0"/>
+            <use href="#me-cube" x="376" y="0"/>
+            <use href="#me-cube" x="470" y="0"/>
+            <use href="#me-cube" x="564" y="0"/>
+            <use href="#me-cube" x="658" y="0"/>
+            <use href="#me-cube" x="752" y="0"/>
+
+            <use href="#me-cube" x="47" y="82"/>
+            <use href="#me-cube" x="141" y="82"/>
+            <use href="#me-cube" x="235" y="82"/>
+            <use href="#me-cube" x="329" y="82"/>
+            <use href="#me-cube" x="423" y="82"/>
+            <use href="#me-cube" x="517" y="82"/>
+            <use href="#me-cube" x="611" y="82"/>
+            <use href="#me-cube" x="705" y="82"/>
+            <use href="#me-cube" x="799" y="82"/>
+
+            <use href="#me-cube" x="0" y="164"/>
+            <use href="#me-cube" x="94" y="164"/>
+            <use href="#me-cube" x="188" y="164"/>
+            <use href="#me-cube" x="282" y="164"/>
+            <use href="#me-cube" x="376" y="164"/>
+            <use href="#me-cube" x="470" y="164"/>
+            <use href="#me-cube" x="564" y="164"/>
+            <use href="#me-cube" x="658" y="164"/>
+            <use href="#me-cube" x="752" y="164"/>
+
+            <use href="#me-cube" x="47" y="246"/>
+            <use href="#me-cube" x="141" y="246"/>
+            <use href="#me-cube" x="235" y="246"/>
+            <use href="#me-cube" x="329" y="246"/>
+            <use href="#me-cube" x="423" y="246"/>
+            <use href="#me-cube" x="517" y="246"/>
+            <use href="#me-cube" x="611" y="246"/>
+            <use href="#me-cube" x="705" y="246"/>
+            <use href="#me-cube" x="799" y="246"/>
+
+            <use href="#me-cube" x="0" y="328"/>
+            <use href="#me-cube" x="94" y="328"/>
+            <use href="#me-cube" x="188" y="328"/>
+            <use href="#me-cube" x="282" y="328"/>
+            <use href="#me-cube" x="376" y="328"/>
+            <use href="#me-cube" x="470" y="328"/>
+            <use href="#me-cube" x="564" y="328"/>
+            <use href="#me-cube" x="658" y="328"/>
+            <use href="#me-cube" x="752" y="328"/>
+
+            <use href="#me-cube" x="47" y="410"/>
+            <use href="#me-cube" x="141" y="410"/>
+            <use href="#me-cube" x="235" y="410"/>
+            <use href="#me-cube" x="329" y="410"/>
+            <use href="#me-cube" x="423" y="410"/>
+            <use href="#me-cube" x="517" y="410"/>
+            <use href="#me-cube" x="611" y="410"/>
+            <use href="#me-cube" x="705" y="410"/>
+            <use href="#me-cube" x="799" y="410"/>
+
+            <use href="#me-cube" x="0" y="492"/>
+            <use href="#me-cube" x="94" y="492"/>
+            <use href="#me-cube" x="188" y="492"/>
+            <use href="#me-cube" x="282" y="492"/>
+            <use href="#me-cube" x="376" y="492"/>
+            <use href="#me-cube" x="470" y="492"/>
+            <use href="#me-cube" x="564" y="492"/>
+            <use href="#me-cube" x="658" y="492"/>
+            <use href="#me-cube" x="752" y="492"/>
+
+            <use href="#me-cube" x="47" y="574"/>
+            <use href="#me-cube" x="141" y="574"/>
+            <use href="#me-cube" x="235" y="574"/>
+            <use href="#me-cube" x="329" y="574"/>
+            <use href="#me-cube" x="423" y="574"/>
+            <use href="#me-cube" x="517" y="574"/>
+            <use href="#me-cube" x="611" y="574"/>
+            <use href="#me-cube" x="705" y="574"/>
+            <use href="#me-cube" x="799" y="574"/>
+
+            <use href="#me-cube" x="0" y="656"/>
+            <use href="#me-cube" x="94" y="656"/>
+            <use href="#me-cube" x="188" y="656"/>
+            <use href="#me-cube" x="282" y="656"/>
+            <use href="#me-cube" x="376" y="656"/>
+            <use href="#me-cube" x="470" y="656"/>
+            <use href="#me-cube" x="564" y="656"/>
+            <use href="#me-cube" x="658" y="656"/>
+            <use href="#me-cube" x="752" y="656"/>
+
+            <use href="#me-cube" x="47" y="738"/>
+            <use href="#me-cube" x="141" y="738"/>
+            <use href="#me-cube" x="235" y="738"/>
+            <use href="#me-cube" x="329" y="738"/>
+            <use href="#me-cube" x="423" y="738"/>
+            <use href="#me-cube" x="517" y="738"/>
+            <use href="#me-cube" x="611" y="738"/>
+            <use href="#me-cube" x="705" y="738"/>
+            <use href="#me-cube" x="799" y="738"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="photo-panel">
+        <img
+          src="../input-media/pexels-pixabay-159358.jpg"
+          alt="Vista aérea de obra de construcción"
+        >
+      </div>
+
+      <div class="content">
+        <div class="topbar">
+          <div class="logo-chip">
+            <img
+              src="../logo-1/FA934584-BD56-40E6-8696-41DF6E62FF71-export.png"
+              alt="Logo Multiequipos"
+            >
+          </div>
+          <span class="eyebrow">Trayectoria que construye confianza</span>
+        </div>
+
+        <section class="main">
+          <div class="accent-line"></div>
+          <h1>
+            Desde
+            <span class="year">2016</span>
+            movemos obras
+          </h1>
+          <p class="copy">
+            Nacimos el 13 de diciembre de 2016 para respaldar proyectos con equipos confiables,
+            entrega oportuna y soluciones listas para trabajar.
+          </p>
+          <div class="location-card">
+            <div class="location-icon">M</div>
+            <div>
+              <span class="location-label">Ubicación</span>
+              <span class="location-value">Oriente Antioqueño, Colombia</span>
+            </div>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <div class="divider"></div>
+          <div class="footer-meta">
+            <span><strong>Multiequipos</strong> | Somos el mejor equipo para tu obra</span>
+            <span class="website">www.multiequipos.com.co</span>
+          </div>
+        </footer>
+      </div>
+    </article>
+
+    <article class="post post-alt" id="post-fundacion-ubicacion-2">
+      <div class="brand-pattern" aria-hidden="true">
+        <svg viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <g id="me-cube-alt">
+              <polygon points="0,36 31,18 62,36 31,54" fill="rgba(248,175,2,0.16)"/>
+              <polygon points="0,36 31,54 31,90 0,72" fill="rgba(57,57,57,0.05)"/>
+              <polygon points="62,36 31,54 31,90 62,72" fill="rgba(57,57,57,0.09)"/>
+            </g>
+          </defs>
+          <g transform="translate(64 52)">
+            <use href="#me-cube-alt" x="0" y="0"/>
+            <use href="#me-cube-alt" x="94" y="0"/>
+            <use href="#me-cube-alt" x="188" y="0"/>
+            <use href="#me-cube-alt" x="282" y="0"/>
+            <use href="#me-cube-alt" x="376" y="0"/>
+            <use href="#me-cube-alt" x="470" y="0"/>
+            <use href="#me-cube-alt" x="564" y="0"/>
+            <use href="#me-cube-alt" x="658" y="0"/>
+            <use href="#me-cube-alt" x="752" y="0"/>
+            <use href="#me-cube-alt" x="846" y="0"/>
+
+            <use href="#me-cube-alt" x="47" y="82"/>
+            <use href="#me-cube-alt" x="141" y="82"/>
+            <use href="#me-cube-alt" x="235" y="82"/>
+            <use href="#me-cube-alt" x="329" y="82"/>
+            <use href="#me-cube-alt" x="423" y="82"/>
+            <use href="#me-cube-alt" x="517" y="82"/>
+            <use href="#me-cube-alt" x="611" y="82"/>
+            <use href="#me-cube-alt" x="705" y="82"/>
+            <use href="#me-cube-alt" x="799" y="82"/>
+
+            <use href="#me-cube-alt" x="0" y="164"/>
+            <use href="#me-cube-alt" x="94" y="164"/>
+            <use href="#me-cube-alt" x="188" y="164"/>
+            <use href="#me-cube-alt" x="282" y="164"/>
+            <use href="#me-cube-alt" x="376" y="164"/>
+            <use href="#me-cube-alt" x="470" y="164"/>
+            <use href="#me-cube-alt" x="564" y="164"/>
+            <use href="#me-cube-alt" x="658" y="164"/>
+            <use href="#me-cube-alt" x="752" y="164"/>
+            <use href="#me-cube-alt" x="846" y="164"/>
+
+            <use href="#me-cube-alt" x="47" y="246"/>
+            <use href="#me-cube-alt" x="141" y="246"/>
+            <use href="#me-cube-alt" x="235" y="246"/>
+            <use href="#me-cube-alt" x="329" y="246"/>
+            <use href="#me-cube-alt" x="423" y="246"/>
+            <use href="#me-cube-alt" x="517" y="246"/>
+            <use href="#me-cube-alt" x="611" y="246"/>
+            <use href="#me-cube-alt" x="705" y="246"/>
+            <use href="#me-cube-alt" x="799" y="246"/>
+
+            <use href="#me-cube-alt" x="0" y="328"/>
+            <use href="#me-cube-alt" x="94" y="328"/>
+            <use href="#me-cube-alt" x="188" y="328"/>
+            <use href="#me-cube-alt" x="282" y="328"/>
+            <use href="#me-cube-alt" x="376" y="328"/>
+            <use href="#me-cube-alt" x="470" y="328"/>
+            <use href="#me-cube-alt" x="564" y="328"/>
+            <use href="#me-cube-alt" x="658" y="328"/>
+            <use href="#me-cube-alt" x="752" y="328"/>
+            <use href="#me-cube-alt" x="846" y="328"/>
+
+            <use href="#me-cube-alt" x="47" y="410"/>
+            <use href="#me-cube-alt" x="141" y="410"/>
+            <use href="#me-cube-alt" x="235" y="410"/>
+            <use href="#me-cube-alt" x="329" y="410"/>
+            <use href="#me-cube-alt" x="423" y="410"/>
+            <use href="#me-cube-alt" x="517" y="410"/>
+            <use href="#me-cube-alt" x="611" y="410"/>
+            <use href="#me-cube-alt" x="705" y="410"/>
+            <use href="#me-cube-alt" x="799" y="410"/>
+
+            <use href="#me-cube-alt" x="0" y="492"/>
+            <use href="#me-cube-alt" x="94" y="492"/>
+            <use href="#me-cube-alt" x="188" y="492"/>
+            <use href="#me-cube-alt" x="282" y="492"/>
+            <use href="#me-cube-alt" x="376" y="492"/>
+            <use href="#me-cube-alt" x="470" y="492"/>
+            <use href="#me-cube-alt" x="564" y="492"/>
+            <use href="#me-cube-alt" x="658" y="492"/>
+            <use href="#me-cube-alt" x="752" y="492"/>
+            <use href="#me-cube-alt" x="846" y="492"/>
+
+            <use href="#me-cube-alt" x="47" y="574"/>
+            <use href="#me-cube-alt" x="141" y="574"/>
+            <use href="#me-cube-alt" x="235" y="574"/>
+            <use href="#me-cube-alt" x="329" y="574"/>
+            <use href="#me-cube-alt" x="423" y="574"/>
+            <use href="#me-cube-alt" x="517" y="574"/>
+            <use href="#me-cube-alt" x="611" y="574"/>
+            <use href="#me-cube-alt" x="705" y="574"/>
+            <use href="#me-cube-alt" x="799" y="574"/>
+
+            <use href="#me-cube-alt" x="0" y="656"/>
+            <use href="#me-cube-alt" x="94" y="656"/>
+            <use href="#me-cube-alt" x="188" y="656"/>
+            <use href="#me-cube-alt" x="282" y="656"/>
+            <use href="#me-cube-alt" x="376" y="656"/>
+            <use href="#me-cube-alt" x="470" y="656"/>
+            <use href="#me-cube-alt" x="564" y="656"/>
+            <use href="#me-cube-alt" x="658" y="656"/>
+            <use href="#me-cube-alt" x="752" y="656"/>
+            <use href="#me-cube-alt" x="846" y="656"/>
+
+            <use href="#me-cube-alt" x="47" y="738"/>
+            <use href="#me-cube-alt" x="141" y="738"/>
+            <use href="#me-cube-alt" x="235" y="738"/>
+            <use href="#me-cube-alt" x="329" y="738"/>
+            <use href="#me-cube-alt" x="423" y="738"/>
+            <use href="#me-cube-alt" x="517" y="738"/>
+            <use href="#me-cube-alt" x="611" y="738"/>
+            <use href="#me-cube-alt" x="705" y="738"/>
+            <use href="#me-cube-alt" x="799" y="738"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="hero-photo">
+        <img
+          src="../input-media/pexels-rezwan-1078884.jpg"
+          alt="Excavadora en obra de construcción"
+        >
+      </div>
+
+      <div class="info-ribbon">
+        <div class="info-copy">
+          <p>
+            Nacimos el 13 de diciembre de 2016 para respaldar proyectos con equipos confiables,
+            entrega oportuna y soluciones listas para trabajar.
+          </p>
+        </div>
+        <div class="info-location">
+          <span class="location-label">Ubicación</span>
+          <span class="location-value">Oriente Antioqueño, Colombia</span>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="topbar">
+          <div class="logo-chip">
+            <img
+              src="../logo-1/FA934584-BD56-40E6-8696-41DF6E62FF71-export.png"
+              alt="Logo Multiequipos"
+            >
+          </div>
+          <span class="eyebrow">Fundación y ubicación</span>
+        </div>
+
+        <section class="main">
+          <div class="accent-line"></div>
+          <h1>
+            Desde <span class="year">2016</span> somos parte del Oriente Antioqueño
+          </h1>
+        </section>
+
+        <footer class="footer">
+          <div class="divider"></div>
+          <div class="footer-meta">
+            <span><strong>Multiequipos</strong> | Somos el mejor equipo para tu obra</span>
+            <span class="website">www.multiequipos.com.co</span>
+          </div>
+        </footer>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

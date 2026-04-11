@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andamio Multidireccional – Multiequipos</title>
+<style>
+  @font-face {
+    font-family: 'Jost';
+    src: url('../fonts/Jost-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Jost';
+    src: url('../fonts/Jost-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+    font-family: 'Jost', sans-serif;
+    background: #393939;
+  }
+
+  .post {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    background: #232323;
+    overflow: hidden;
+  }
+
+  /* ─── ME-CUBE TESSELLATION PATTERN ─── */
+  .pattern-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpolygon points='40,5 70,22.5 70,57.5 40,75 10,57.5 10,22.5' fill='none' stroke='%23f8af02' stroke-width='1.5'/%3E%3Cpolygon points='40,5 70,22.5 40,40 10,22.5' fill='none' stroke='%23f8af02' stroke-width='1'/%3E%3Cline x1='40' y1='40' x2='40' y2='75' stroke='%23f8af02' stroke-width='1'/%3E%3Cline x1='40' y1='40' x2='70' y2='57.5' stroke='%23f8af02' stroke-width='1'/%3E%3Cline x1='40' y1='40' x2='10' y2='57.5' stroke='%23f8af02' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 80px 80px;
+  }
+
+  /* ─── LEFT YELLOW DIAGONAL STRIPE ─── */
+  .diagonal-accent {
+    position: absolute;
+    left: -60px;
+    top: 0;
+    width: 420px;
+    height: 100%;
+    background: linear-gradient(105deg, #f8af02 0%, #f8af02 52%, transparent 52%);
+    z-index: 1;
+  }
+
+  /* ─── DARK PHOTO OVERLAY on left side ─── */
+  .left-section {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 500px;
+    height: 1080px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 30px 60px 50px;
+  }
+
+  /* ─── PRODUCT IMAGE CONTAINER ─── */
+  .product-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 560px;
+    height: 1080px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-shadow {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 340px;
+    height: 30px;
+    background: radial-gradient(ellipse, rgba(0,0,0,0.6) 0%, transparent 70%);
+    z-index: 3;
+  }
+
+  .product-img {
+    width: 520px;
+    height: auto;
+    max-height: 820px;
+    object-fit: contain;
+    position: relative;
+    z-index: 4;
+    /* Subtle drop shadow for depth */
+    filter: drop-shadow(0px 20px 40px rgba(0,0,0,0.7)) drop-shadow(0px 0px 60px rgba(248,175,2,0.15));
+    margin-top: 20px;
+  }
+
+  /* ─── RIGHT CONTENT SECTION ─── */
+  .right-section {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 520px;
+    height: 1080px;
+    background: #2a2a2a;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 50px 40px 50px;
+  }
+
+  /* subtle dark gradient overlay on right */
+  .right-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1e1e1e 0%, #2e2e2e 100%);
+    z-index: -1;
+  }
+
+  /* ─── LOGO ─── */
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .logo-img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* ─── YELLOW TOP ACCENT BAR ─── */
+  .top-bar {
+    width: 60px;
+    height: 5px;
+    background: #f8af02;
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  /* ─── CATEGORY TAG ─── */
+  .category-tag {
+    display: inline-block;
+    background: #f8af02;
+    color: #393939;
+    font-family: 'Jost', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    margin-bottom: 22px;
+    border-radius: 2px;
+  }
+
+  /* ─── MAIN TITLE ─── */
+  .product-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 900;
+    font-size: 52px;
+    line-height: 1.0;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+  }
+
+  .product-title span {
+    color: #f8af02;
+  }
+
+  /* ─── SUBTITLE ─── */
+  .product-subtitle {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #b3b3b3;
+    margin-bottom: 30px;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, #f8af02 0%, rgba(248,175,2,0.2) 60%, transparent 100%);
+    margin-bottom: 30px;
+  }
+
+  /* ─── FEATURES LIST ─── */
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    flex: 1;
+    margin-bottom: 30px;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .feature-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    background: rgba(248,175,2,0.12);
+    border: 1.5px solid rgba(248,175,2,0.4);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: #f8af02;
+  }
+
+  .feature-text h4 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  .feature-text p {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #b3b3b3;
+    line-height: 1.4;
+  }
+
+  /* ─── SPECS BAND ─── */
+  .specs-band {
+    display: flex;
+    gap: 0;
+    margin-bottom: 28px;
+    border: 1px solid rgba(248,175,2,0.25);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .spec-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 10px;
+    background: rgba(248,175,2,0.05);
+    border-right: 1px solid rgba(248,175,2,0.2);
+    text-align: center;
+  }
+
+  .spec-item:last-child { border-right: none; }
+
+  .spec-value {
+    font-family: 'Jost', sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: #f8af02;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .spec-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    color: #b3b3b3;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ─── CTA BUTTON ─── */
+  .cta-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .cta-btn {
+    background: #f8af02;
+    color: #393939;
+    font-family: 'Jost', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .cta-contact {
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: #b3b3b3;
+    line-height: 1.4;
+  }
+
+  .cta-contact span {
+    display: block;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer-bar {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .slogan-text {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    color: #b3b3b3;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .website-tag {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: #de1f14;
+    letter-spacing: 0.5px;
+    text-transform: lowercase;
+  }
+
+  /* ─── LEFT OVERLAY GRADIENT (blends photo into right section) ─── */
+  .left-gradient {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 160px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, #2a2a2a 100%);
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  /* ─── TOP-LEFT YELLOW CORNER ACCENT ─── */
+  .corner-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 120px;
+    background: #f8af02;
+    z-index: 10;
+  }
+
+  /* ─── ARRENDAMIENTO BADGE ─── */
+  .arrendamiento-badge {
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    z-index: 10;
+    background: rgba(35,35,35,0.88);
+    border-left: 4px solid #f8af02;
+    padding: 10px 16px;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .badge-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    color: #f8af02;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 2px;
+  }
+
+  .badge-value {
+    font-family: 'Jost', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+</style>
+</head>
+<body>
+<div class="post">
+
+  <!-- Background pattern -->
+  <div class="pattern-bg"></div>
+
+  <!-- Left corner vertical accent -->
+  <div class="corner-accent"></div>
+
+  <!-- Product section (left/center) -->
+  <div class="product-container">
+    <img
+      class="product-img"
+      src="../Products/ANDAMIO MULTIDIRECCIONAL.png"
+      alt="Andamio Multidireccional"
+    />
+    <div class="product-shadow"></div>
+  </div>
+
+  <!-- Gradient blending left→right -->
+  <div class="left-gradient"></div>
+
+  <!-- Arrendamiento badge over product -->
+  <div class="arrendamiento-badge">
+    <div class="badge-label">En arriendo</div>
+    <div class="badge-value">Disponible ya</div>
+  </div>
+
+  <!-- Right content panel -->
+  <div class="right-section">
+
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <img
+        class="logo-img"
+        src="../logo-1/FA934584-BD56-40E6-8696-41DF6E62FF71-export.png"
+        alt="Multiequipos Logo"
+        style="filter: brightness(0) invert(1);"
+      />
+    </div>
+
+    <!-- Top accent bar -->
+    <div class="top-bar"></div>
+
+    <!-- Category -->
+    <div class="category-tag">Equipos de Altura</div>
+
+    <!-- Main title -->
+    <h1 class="product-title">
+      Andamio<br>
+      <span>Multi</span>direccional
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="product-subtitle">
+      Estructura modular de alta resistencia para<br>trabajos en altura con total seguridad.
+    </p>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Features -->
+    <div class="features">
+
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="feature-text">
+          <h4>Sistema Modular</h4>
+          <p>Configuración flexible para adaptarse a cualquier geometría de obra</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <div class="feature-text">
+          <h4>Alta Seguridad</h4>
+          <p>Plataformas antideslizantes con barandas perimetrales de protección</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div class="feature-text">
+          <h4>Fácil Montaje</h4>
+          <p>Ensamble rápido con menos personal — reduce tiempo y costos en obra</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <div class="feature-text">
+          <h4>Máxima Versatilidad</h4>
+          <p>Ideal para fachadas, interiores y estructuras de forma irregular</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Specs band -->
+    <div class="specs-band">
+      <div class="spec-item">
+        <div class="spec-value">12m+</div>
+        <div class="spec-label">Altura máx.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-value">360°</div>
+        <div class="spec-label">Configuración</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-value">275kg</div>
+        <div class="spec-label">Carga útil</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-area">
+      <div class="cta-btn">Cotiza Ahora</div>
+      <div class="cta-contact">
+        Oriente Antioqueño
+        <span>Colombia</span>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-bar">
+      <div class="slogan-text">Somos el mejor equipo para tu obra</div>
+      <div class="website-tag">www.multiequipos.com.co</div>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, initial-scale=1.0">
+  <title>Multiequipos | Andamio Multidireccional</title>
+  <style>
+    @font-face {
+      font-family: 'Jost';
+      src: url('../fonts/Jost-VariableFont_wght.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Jost';
+      src: url('../fonts/Jost-Italic-VariableFont_wght.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: italic;
+    }
+
+    :root {
+      --brand-white: #ffffff;
+      --brand-dark: #393939;
+      --brand-yellow: #f8af02;
+      --brand-gray: #b3b3b3;
+      --brand-red: #de1f14;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      background: var(--brand-white);
+      font-family: 'Jost', sans-serif;
+    }
+
+    .post {
+      position: relative;
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      background: #d8d1c8;
+      color: var(--brand-white);
+    }
+
+    .hero {
+      position: absolute;
+      inset: 0 0 206px;
+      overflow: hidden;
+      background: var(--brand-dark);
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: saturate(0.94) brightness(0.92);
+      transform: scale(1.01);
+      transform-origin: center top;
+      opacity: 1;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(57, 57, 57, 0.04) 0%, rgba(57, 57, 57, 0.1) 48%, rgba(57, 57, 57, 0.34) 100%),
+        linear-gradient(90deg, rgba(57, 57, 57, 0.18) 0%, rgba(57, 57, 57, 0.03) 42%, rgba(57, 57, 57, 0.12) 100%);
+    }
+
+    .copy {
+      position: absolute;
+      left: 56px;
+      right: 56px;
+      bottom: 250px;
+      z-index: 4;
+      display: grid;
+      gap: 10px;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 18px;
+    }
+
+    .title-accent {
+      width: 82px;
+      height: 96px;
+      background: var(--brand-yellow);
+      flex: 0 0 auto;
+    }
+
+    .titles {
+      display: grid;
+      gap: 6px;
+      padding-bottom: 6px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 82px;
+      line-height: 0.9;
+      font-weight: 860;
+      text-transform: uppercase;
+      letter-spacing: -0.045em;
+      text-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .footer {
+      position: absolute;
+      inset: auto 0 0;
+      height: 206px;
+      background:
+        radial-gradient(circle at 18% 28%, rgba(57, 57, 57, 0.035), transparent 18%),
+        radial-gradient(circle at 72% 68%, rgba(57, 57, 57, 0.03), transparent 18%),
+        linear-gradient(180deg, #fefefe 0%, #f5f5f5 100%);
+      display: grid;
+      grid-template-columns: 1.32fr 1fr 0.9fr;
+      align-items: center;
+      padding: 24px 42px;
+      column-gap: 18px;
+      color: var(--brand-dark);
+      z-index: 5;
+    }
+
+    .feature {
+      position: relative;
+      min-height: 118px;
+      padding: 8px 18px 8px 28px;
+      display: grid;
+      align-content: center;
+      gap: 6px;
+    }
+
+    .feature::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      bottom: 14px;
+      width: 8px;
+      background: var(--brand-yellow);
+    }
+
+    .feature p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.22;
+      font-weight: 430;
+    }
+
+    .feature strong {
+      font-weight: 760;
+    }
+
+    .feature-large p {
+      font-size: 18px;
+    }
+
+    .logo-box {
+      display: grid;
+      justify-items: end;
+      align-items: center;
+      padding-left: 10px;
+    }
+
+    .logo-box img {
+      width: 248px;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <article class="post" id="post-4">
+    <section class="hero">
+      <img
+        class="hero-photo"
+        src="../example/1.png"
+        alt="Andamio multidireccional en obra"
+      >
+    </section>
+
+    <section class="copy">
+      <div class="title-row">
+        <div class="title-accent" aria-hidden="true"></div>
+        <div class="titles">
+          <h1>ANDAMIO</h1>
+          <p class="subtitle">Multidireccional</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="feature feature-large">
+        <p><strong>Certificado</strong></p>
+        <p><strong>Altura:</strong> desde 2 mts</p>
+        <p><strong>Ancho:</strong> desde 0.70, 1.40, 2 y 3 mts</p>
+      </div>
+
+      <div class="feature">
+        <p>Con plataformas</p>
+        <p>Con tornillo nivelador o ruedas</p>
+      </div>
+
+      <div class="logo-box">
+        <img
+          src="../logo-1/FA934584-BD56-40E6-8696-41DF6E62FF71-export.png"
+          alt="Logo Multiequipos"
+        >
+      </div>
+    </footer>
+  </article>
+</body>
+</html>
