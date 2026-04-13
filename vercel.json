@@ -3,5 +3,5 @@
   "buildCommand": null,
   "outputDirectory": null,
   "cleanUrls": false,
-  "trailingSlash": false
+  "trailingSlash": true
 }
