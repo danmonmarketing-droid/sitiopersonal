@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto Ambulatorio — Hospital Pablo Tobón Uribe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="presentation" id="presentation">
+
+    <!-- SLIDE 0: PORTADA -->
+    <section class="slide slide--cover">
+      <div class="cover-bg"></div>
+      <div class="slide__inner">
+        <img class="logo" src="logo-basica.png" alt="Básica">
+        <div class="cover-content">
+          <p class="cover-tag">Análisis de Localización</p>
+          <h1 class="cover-title">Proyecto<br>Ambulatorio</h1>
+          <p class="cover-subtitle">Hospital Pablo Tobón Uribe</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 1: OBJETIVO -->
+    <section class="slide slide--dark">
+      <div class="slide__inner">
+        <div class="slide-label">Objetivo</div>
+        <p class="slide-body">
+          Determinar las <span class="accent">micro-zonas más idóneas</span> dentro del Valle de Aburrá para la sede ambulatoria del Hospital Pablo Tobón Uribe.
+        </p>
+        <div class="bullets">
+          <div class="bullet">
+            <span class="bullet-marker">—</span>
+            <span>Foco en segmentos socioeconómicos <strong>5 y 6</strong></span>
+          </div>
+          <div class="bullet">
+            <span class="bullet-marker">—</span>
+            <span>Sede ambulatoria: <strong>imágenes diagnósticas, toma de muestras y laboratorio clínico</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: CONTEXTO -->
+    <section class="slide slide--dark">
+      <div class="slide__inner">
+        <div class="slide-label">Contexto</div>
+        <h2 class="slide-title">Medellín</h2>
+        <div class="stats-grid">
+          <div class="stat-block">
+            <p class="stat-label">Estratos objetivo</p>
+            <p class="stat-value accent">5 y 6</p>
+          </div>
+          <div class="stat-block">
+            <p class="stat-label">Habitantes estratos 5–6</p>
+            <p class="stat-value accent">—</p>
+            <p class="stat-note">[dato por completar]</p>
+          </div>
+          <div class="stat-block">
+            <p class="stat-label">Predios analizados</p>
+            <p class="stat-value accent">—</p>
+            <p class="stat-note">[dato por completar]</p>
+          </div>
+          <div class="stat-block">
+            <p class="stat-label">Índice IRS</p>
+            <p class="stat-value accent">0–100</p>
+            <p class="stat-note">Puntuación compuesta<br>de 5 variables ponderadas</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: FÓRMULA -->
+    <section class="slide slide--dark">
+      <div class="slide__inner">
+        <div class="slide-label">Metodología</div>
+        <h2 class="slide-title">Cada zona recibe un puntaje de 0 a 100</h2>
+        <div class="formula-block">
+          <p class="formula-eq">Score&nbsp;=&nbsp;<span class="accent">A×25</span> + <span class="accent">D×25</span> + <span class="accent">C×20</span> + <span class="accent">E×15</span> + <span class="accent">Vis×15</span></p>
+        </div>
+        <div class="variables-grid">
+          <div class="var-row">
+            <span class="var-label accent">A</span>
+            <span class="var-weight">25%</span>
+            <div class="var-info">
+              <strong>Accesibilidad</strong>
+              <span>¿Qué tan fácil es llegar?</span>
+            </div>
+          </div>
+          <div class="var-row">
+            <span class="var-label accent">D</span>
+            <span class="var-weight">25%</span>
+            <div class="var-info">
+              <strong>Demanda</strong>
+              <span>¿Hay gente que necesite servicios ambulatorios?</span>
+            </div>
+          </div>
+          <div class="var-row">
+            <span class="var-label accent">C</span>
+            <span class="var-weight">20%</span>
+            <div class="var-info">
+              <strong>Competencia</strong>
+              <span>¿Qué tan saturada está la zona?</span>
+            </div>
+          </div>
+          <div class="var-row">
+            <span class="var-label accent">E</span>
+            <span class="var-weight">15%</span>
+            <div class="var-info">
+              <strong>Esperas Productivas</strong>
+              <span>¿Qué retail y servicios hay alrededor?</span>
+            </div>
+          </div>
+          <div class="var-row">
+            <span class="var-label accent">Vis</span>
+            <span class="var-weight">15%</span>
+            <div class="var-info">
+              <strong>Visibilidad</strong>
+              <span>¿Cuánta gente pasa y ve la sede?</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: RESULTADO MODELO 1 -->
+    <section class="slide slide--dark">
+      <div class="slide__inner slide__inner--compact">
+        <div class="slide-label">Resultado</div>
+        <h2 class="slide-title">Puntuación por zona — Modelo 1</h2>
+        <table class="score-table">
+          <thead>
+            <tr>
+              <th>Zona</th>
+              <th class="accent">A<br><small>25%</small></th>
+              <th class="accent">D<br><small>25%</small></th>
+              <th class="accent">C<br><small>20%</small></th>
+              <th class="accent">E<br><small>15%</small></th>
+              <th class="accent">Vis<br><small>15%</small></th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row--highlight">
+              <td>1. Las Palmas Bajo</td>
+              <td>92</td><td>93</td><td>78</td><td>88</td><td>85</td>
+              <td class="total accent-bold">88</td>
+            </tr>
+            <tr>
+              <td>2. Palmas Medio</td>
+              <td>85</td><td>91</td><td>65</td><td>55</td><td>78</td>
+              <td class="total">77</td>
+            </tr>
+            <tr>
+              <td>3. Envigado–Zúñiga</td>
+              <td>75</td><td>80</td><td>62</td><td>72</td><td>78</td>
+              <td class="total">74</td>
+            </tr>
+            <tr>
+              <td>4. Milla de Oro</td>
+              <td>55</td><td>95</td><td>35</td><td>92</td><td>73</td>
+              <td class="total">73</td>
+            </tr>
+            <tr>
+              <td>5. Nuevo Poblado–Itagüí</td>
+              <td>82</td><td>68</td><td>52</td><td>55</td><td>80</td>
+              <td class="total">68</td>
+            </tr>
+            <tr>
+              <td>6. Las Palmas Alto</td>
+              <td>42</td><td>52</td><td>90</td><td>20</td><td>30</td>
+              <td class="total total--low">49</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="table-note">Las Palmas Bajo lidera con <span class="accent">88/100</span>. Palmas Medio es #2 (77). Envigado #3 (74). Milla de Oro baja al #4 por su competencia feroz y baja accesibilidad.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: ACCESIBILIDAD -->
+    <section class="slide slide--dark">
+      <div class="slide__inner slide__inner--split">
+        <div class="split-col">
+          <div class="slide-label">Accesibilidad</div>
+          <h2 class="slide-title">Congestión vial<br>en hora pico</h2>
+          <div class="speed-block">
+            <div class="speed-item">
+              <p class="speed-label">Av. El Poblado</p>
+              <p class="speed-value speed--slow">18,0<span class="speed-unit"> km/h</span></p>
+              <p class="speed-desc">congestión severa</p>
+            </div>
+            <div class="speed-item">
+              <p class="speed-label">Av. Las Palmas</p>
+              <p class="speed-value accent">36,1<span class="speed-unit"> km/h</span></p>
+              <p class="speed-desc">el doble de rápido</p>
+            </div>
+          </div>
+        </div>
+        <div class="split-col">
+          <p class="split-label">¿Cuánto me demoro en carro a Palmas Bajo?</p>
+          <table class="data-table">
+            <thead>
+              <tr><th>Origen</th><th>Tiempo</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Milla de Oro</td><td class="accent">15,4 min</td></tr>
+              <tr><td>El Poblado (Parque)</td><td class="accent">17,7 min</td></tr>
+              <tr><td>Envigado Centro</td><td class="accent">24,8 min</td></tr>
+              <tr><td>Laureles</td><td class="accent">32,3 min</td></tr>
+              <tr><td>Itagüí Centro</td><td class="accent">33,4 min</td></tr>
+            </tbody>
+          </table>
+          <p class="source">Fuente: Google Routes + Mapbox</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: DEMANDA -->
+    <section class="slide slide--dark">
+      <div class="slide__inner">
+        <div class="slide-label">Demanda</div>
+        <h2 class="slide-title">Crecimiento y mercado</h2>
+        <div class="demand-grid">
+          <div class="demand-block">
+            <p class="demand-label">Valle de Aburrá a 2037</p>
+            <p class="demand-value accent">+152k</p>
+            <p class="demand-sub">habitantes nuevos</p>
+            <div class="demand-detail">
+              <span>El Poblado <strong class="accent">+21%</strong></span>
+              <span>Envigado <strong class="accent">+17%</strong></span>
+              <span>Sabaneta <strong class="accent">+19%</strong></span>
+            </div>
+          </div>
+          <div class="demand-block">
+            <p class="demand-label">Prepagada Antioquia</p>
+            <p class="demand-value accent">1,4M</p>
+            <p class="demand-sub">afiliados · crecimiento <span class="accent">+37%</span> (2022–2025)</p>
+            <p class="demand-revenue">Revenue/año <span class="accent">COP $7,2 billones</span></p>
+          </div>
+          <div class="demand-block">
+            <p class="demand-label">Cirugía ambulatoria Colombia</p>
+            <p class="demand-value accent">490.944</p>
+            <p class="demand-sub">procedimientos/año</p>
+            <p class="demand-revenue"><span class="accent">80%</span> de las cirugías son ambulatorias</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: COMPETENCIA -->
+    <section class="slide slide--dark">
+      <div class="slide__inner">
+        <div class="slide-label">Competencia</div>
+        <h2 class="slide-title">Actores en la zona</h2>
+        <div class="competitor-list">
+          <div class="competitor-item">
+            <span class="bullet-marker accent">—</span>
+            <span><strong>Cedimed</strong> — Almacentro, Intermedios, Oviedo, Tesoro</span>
+          </div>
+          <div class="competitor-item">
+            <span class="bullet-marker accent">—</span>
+            <span><strong>Ciudad del Río</strong> — sin tomógrafo</span>
+          </div>
+          <div class="competitor-item">
+            <span class="bullet-marker accent">—</span>
+            <span><strong>Sura</strong> — Industriales, La Frontera y otra sede</span>
+          </div>
+          <div class="competitor-item">
+            <span class="bullet-marker accent">—</span>
+            <span><strong>Tu Diagnóstico</strong></span>
+          </div>
+          <div class="competitor-item">
+            <span class="bullet-marker accent">—</span>
+            <span><strong>Las Américas</strong> — sedes ambulatorias</span>
+          </div>
+          <div class="competitor-item">
+            <span class="bullet-marker accent">—</span>
+            <span><strong>El Rosario</strong></span>
+          </div>
+          <div class="competitor-item">
+            <span class="bullet-marker accent">—</span>
+            <span><strong>Clínica Las Vegas</strong></span>
+          </div>
+          <div class="competitor-item">
+            <span class="bullet-marker accent">—</span>
+            <span><strong>Clínica Medellín</strong></span>
+          </div>
+          <div class="competitor-item">
+            <span class="bullet-marker accent">—</span>
+            <span><strong>Pro Diagnóstico</strong> — del doctor Cruz</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: ESPERAS PRODUCTIVAS -->
+    <section class="slide slide--dark">
+      <div class="slide__inner slide__inner--split">
+        <div class="split-col">
+          <div class="slide-label">Esperas Productivas</div>
+          <h2 class="slide-title">¿Cuántos lugares a 500 m para hacer espera productiva?</h2>
+          <p class="source" style="margin-top:0.5rem;">Datos reales Google Places (500 m)</p>
+        </div>
+        <div class="split-col">
+          <table class="data-table data-table--centered">
+            <thead>
+              <tr>
+                <th>Categoría</th>
+                <th class="accent">Palmas Bajo</th>
+                <th>Milla de Oro</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Gastronomía</td><td class="accent">75</td><td>80</td></tr>
+              <tr><td>Bienestar</td><td class="accent">55</td><td>54</td></tr>
+              <tr><td>Retail</td><td class="accent">31</td><td>57</td></tr>
+              <tr><td>Financiero</td><td class="accent">13</td><td>40</td></tr>
+              <tr><td>Farmacias</td><td class="accent">11</td><td>23</td></tr>
+              <tr class="row--total">
+                <td><strong>Total POIs</strong></td>
+                <td class="accent"><strong>281</strong></td>
+                <td><strong>396</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: VISIBILIDAD -->
+    <section class="slide slide--dark">
+      <div class="slide__inner slide__inner--split">
+        <div class="split-col">
+          <div class="slide-label">Visibilidad</div>
+          <h2 class="slide-title">Tráfico vehicular diario</h2>
+          <table class="data-table">
+            <thead><tr><th>Corredor</th><th>Veh/día</th></tr></thead>
+            <tbody>
+              <tr><td>Av. Las Palmas</td><td class="accent">42.000</td></tr>
+              <tr><td>Túnel de Oriente</td><td class="accent">18.000</td></tr>
+              <tr><td>Vía Santa Elena</td><td class="accent">8.000</td></tr>
+            </tbody>
+          </table>
+          <p class="callout">Palmas es un corredor <span class="accent">sin pico y placa</span></p>
+        </div>
+        <div class="split-col">
+          <p class="split-label">Proxy de tráfico peatonal<br>POIs en 50 m de vías principales (Google Places)</p>
+          <table class="data-table">
+            <thead><tr><th>Zona</th><th>POIs/calle</th></tr></thead>
+            <tbody>
+              <tr><td>Envigado</td><td class="accent">100</td></tr>
+              <tr><td>Milla de Oro</td><td class="accent">61</td></tr>
+              <tr><td>Palmas Bajo</td><td class="accent">53</td></tr>
+              <tr><td>N. Poblado</td><td class="accent">53</td></tr>
+              <tr><td>LP Alto</td><td>8</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: PRUEBA ÁCIDA -->
+    <section class="slide slide--dark">
+      <div class="slide__inner slide__inner--split" style="align-items:stretch; gap: clamp(2rem,4vw,4rem);">
+        <div class="split-col" style="justify-content:center; gap:1.4rem;">
+          <div class="slide-label">Robustez</div>
+          <h2 class="slide-title">¿Qué tan robusto<br>es el ranking?</h2>
+          <p class="slide-intro">Probamos <span class="accent">6.891 combinaciones</span> de pesos (cada variable entre 5% y 35%) con 6 zonas y 5 variables</p>
+          <div class="acid-grid">
+            <div class="acid-row acid-row--header">
+              <span>Pregunta</span><span>Resultado</span><span>Interpretación</span>
+            </div>
+            <div class="acid-row">
+              <span>¿LP Bajo pierde el #1?</span>
+              <span class="accent"><strong>Casi nunca (0,7%)</strong></span>
+              <span>Es #1 en el 99,3% de los escenarios</span>
+            </div>
+            <div class="acid-row">
+              <span>¿Milla de Oro es top-2?</span>
+              <span class="accent">48% de las veces</span>
+              <span>#2 cuando Dem, Esp o Vis pesan más</span>
+            </div>
+            <div class="acid-row">
+              <span>¿Quién desplaza a MdO?</span>
+              <span class="accent">Palmas Medio o Envigado</span>
+              <span>Cuando Acc o Comp pesan más</span>
+            </div>
+          </div>
+        </div>
+        <div class="split-col" style="justify-content:center; gap:1rem; border-left:1px solid var(--border); padding-left: clamp(1.5rem,3vw,3rem);">
+          <p class="scenarios-title" style="font-size:0.68rem;">Escenarios clave — qué pasa si una variable domina</p>
+          <table class="data-table data-table--scenarios">
+            <thead>
+              <tr><th>Si priorizamos…</th><th>#1</th><th>#2</th><th>#3</th><th>#4</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Base (25/25/20/15/15)</td><td class="accent">LP Bajo (88)</td><td>P. Medio (77)</td><td>Envigado (74)</td><td>MdO (73)</td></tr>
+              <tr><td>Demanda (35%)</td><td class="accent">LP Bajo (88)</td><td>MdO (79)</td><td>P. Medio (78)</td><td>Envigado (74)</td></tr>
+              <tr><td>Accesibilidad (35%)</td><td class="accent">LP Bajo (88)</td><td>P. Medio (77)</td><td>Envigado (74)</td><td>MdO (68)</td></tr>
+              <tr><td>Competencia (35%)</td><td class="accent">LP Bajo (85)</td><td>P. Medio (73)</td><td>Envigado (71)</td><td>MdO (63)</td></tr>
+              <tr><td>Esperas Prod. (35%)</td><td class="accent">LP Bajo (87)</td><td>P. Medio (73)</td><td>Envigado (72)</td><td>—</td></tr>
+              <tr><td>Visibilidad (35%)</td><td class="accent">LP Bajo (87)</td><td>MdO (79)</td><td>P. Medio (74)</td><td>Envigado (73)</td></tr>
+            </tbody>
+          </table>
+          <p class="conclusion-note"><span class="accent">LP Bajo es #1 en 99,3% de escenarios.</span> Palmas Medio y Milla de Oro compiten por el #2 según los pesos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 11: MODELO 2 -->
+    <section class="slide slide--dark">
+      <div class="slide__inner slide__inner--compact">
+        <div class="slide-label">Modelo 2</div>
+        <h2 class="slide-title">¿Y si priman visibilidad y esperas?</h2>
+        <p class="slide-intro">Ponderando <span class="accent">Competencia (25%)</span>, <span class="accent">Visibilidad (30%)</span>, <span class="accent">Esperas (25%)</span> más alto — Acc y Dem bajan a 10%</p>
+        <table class="score-table">
+          <thead>
+            <tr>
+              <th>Zona</th>
+              <th>Modelo 1<br><small>25/25/20/15/15</small></th>
+              <th>Modelo 2<br><small>10/10/25/25/30</small></th>
+              <th>Cambio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row--highlight">
+              <td>Las Palmas Bajo</td>
+              <td><span class="accent">88</span> <span class="rank">(#1)</span></td>
+              <td><span class="accent">84</span> <span class="rank">(#1)</span></td>
+              <td class="change-stable">Se mantiene #1</td>
+            </tr>
+            <tr>
+              <td>Milla de Oro</td>
+              <td>73 <span class="rank">(#4)</span></td>
+              <td><span class="accent">78</span> <span class="rank">(#2)</span></td>
+              <td class="change-up">↑ Sube a #2</td>
+            </tr>
+            <tr>
+              <td>Envigado</td>
+              <td>74 <span class="rank">(#3)</span></td>
+              <td>72 <span class="rank">(#3)</span></td>
+              <td>Se mantiene #3</td>
+            </tr>
+            <tr>
+              <td>Palmas Medio</td>
+              <td>77 <span class="rank">(#2)</span></td>
+              <td>70 <span class="rank">(#4)</span></td>
+              <td class="change-down">↓ Baja dos posiciones</td>
+            </tr>
+            <tr>
+              <td>N. Poblado</td>
+              <td>68 <span class="rank">(#5)</span></td>
+              <td>66 <span class="rank">(#5)</span></td>
+              <td class="dim">Estable</td>
+            </tr>
+            <tr>
+              <td>LP Alto</td>
+              <td>49 <span class="rank">(#6)</span></td>
+              <td>46 <span class="rank">(#6)</span></td>
+              <td class="dim">Estable</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="table-note"><span class="accent">Palmas Bajo se mantiene #1 en ambos modelos.</span> Milla de Oro sube de #4 a #2 por su mayor densidad de servicios caminables (396 POIs vs 281). La decisión es: ¿priman los fundamentos (accesibilidad, demanda) o la experiencia (visibilidad, esperas)?</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 12: ZONA SEGMENTADA -->
+    <section class="slide slide--dark">
+      <div class="slide__inner slide__inner--split" style="gap:0; padding:0;">
+
+        <!-- Columna izquierda: mapa con título encima -->
+        <div class="map-col">
+          <div class="map-title-overlay">
+            <p class="slide-label" style="color:var(--accent);">Zona Recomendada</p>
+            <h2 class="map-title">Zona Sugerida</h2>
+          </div>
+          <img class="map-img" src="mapa-zona.png" alt="Mapa Las Palmas Bajo">
+        </div>
+
+        <!-- Columna derecha: espacio para datos de Cristian -->
+        <div class="map-data-col">
+          <p class="slide-label">Datos de zona</p>
+          <div class="map-data-placeholder">
+            <p>[datos por completar]</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SLIDE 13: CIERRE -->
+    <section class="slide slide--cover">
+      <div class="cover-bg"></div>
+      <div class="slide__inner">
+        <img class="logo" src="logo-basica.png" alt="Básica">
+        <div class="cover-content">
+          <p class="cover-tag">Hospital Pablo Tobón Uribe</p>
+          <h2 class="cover-title" style="font-size: clamp(2.2rem, 5vw, 4.5rem);">Proyecto<br>Ambulatorio</h2>
+          <p class="cover-subtitle">Análisis de Localización · Valle de Aburrá</p>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /presentation -->
+
+  <nav class="slide-nav">
+    <button class="nav-btn" id="prevBtn">←</button>
+    <span class="nav-counter" id="navCounter">1 / 14</span>
+    <button class="nav-btn" id="nextBtn">→</button>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>
