@@ -805,6 +805,30 @@ html, body {
   margin-top: 0.6rem;
 }
 
+.pending-block {
+  margin-top: 0.7rem;
+  border: 1px dashed rgba(39, 209, 212, 0.35);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.pending-tag {
+  font-size: clamp(0.68rem, 0.9vw, 0.78rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.pending-block p {
+  font-size: clamp(0.78rem, 1.1vw, 0.9rem);
+  color: var(--dim);
+  line-height: 1.5;
+}
+
 /* ============================================
    SLIDE 12 — MAPA + DATOS
    ============================================ */
