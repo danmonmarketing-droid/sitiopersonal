@@ -68,6 +68,13 @@ Toda presentación HTML del workspace, sin importar cliente, sigue estas convenc
   - `../../Brand Manual/...` — PDF de referencia obligatoria
 - **Formato de slide**: `100vw` × `100svh`, navegación horizontal, un solo viewport por slide, sin scroll vertical como experiencia principal. Si una idea no cabe, se convierte en slide nuevo — no se comprime.
 - **Logo en apertura y cierre** de toda presentación, elegido por contraste con el fondo (nunca por preferencia estética, nunca dentro de cajas o tarjetas decorativas, nunca recoloreado/rotado/deformado).
+- **Responsive obligatorio**: toda presentación debe funcionar en mobile (≤560px), tablet (≤900px) y desktop. Reglas mínimas:
+  - Layouts `split` (dos columnas) colapsan a columna única en tablet/mobile con `flex-direction: column`.
+  - Grids de 3–4 columnas se reducen a 1–2 columnas en mobile.
+  - Tablas anchas (más de 4 columnas) reciben `display: block; overflow-x: auto` en mobile.
+  - Tipografía usa `clamp()` en todos los tamaños para escalar fluidamente.
+  - `script.js` incluye siempre soporte de swipe táctil (touchstart/touchend, umbral mínimo 40px, solo si el desplazamiento es más horizontal que vertical).
+  - El QA con Playwright cubre al menos viewport mobile 375×812 además del desktop 1440×810.
 - **QA visual con Playwright** antes de cerrar: servir vía `python3 -m http.server 8000` desde la raíz del workspace (Playwright no lee `file://`), navegar a `http://localhost:8000/Clientes/{cliente}/Presentaciones/{pieza}/`, screenshot, iterar.
 - **Revisión de tildes y ortografía** antes de dar cualquier presentación por terminada.
 
@@ -79,7 +86,7 @@ Toda presentación HTML del workspace, sin importar cliente, sigue estas convenc
 - **No mezcles sistemas visuales**: cada marca es cerrada. Si dudas, pregunta qué marca aplica.
 - **Git desde la raíz**: `git status`, `git commit`, `git push` se ejecutan desde `~/Desktop/AI`. Hay un solo repo.
 - **Playwright sobre HTTP, no `file://`**: servir vía `python3 -m http.server 8000` desde la raíz para que las rutas `Clientes/.../Presentaciones/...` resuelvan correctamente.
-- **Antes de cerrar cualquier presentación**: correr el checklist de la marca (contraste de logo, viewport completo sin scroll vertical, paleta oficial, tildes/ortografía revisadas) y commit registrado en la raíz.
+- **Antes de cerrar cualquier presentación**: correr el checklist de la marca (contraste de logo, viewport completo sin scroll vertical, paleta oficial, tildes/ortografía revisadas, **QA responsive en mobile 375px**) y commit registrado en la raíz.
 
 ## Carpetas auxiliares
 
