@@ -757,6 +757,55 @@ html, body {
 }
 
 /* ============================================
+   SLIDE 3 — FOCO AMBULATORIO
+   ============================================ */
+.foco-services {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.foco-service {
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+}
+
+.foco-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  padding-top: 0.25rem;
+}
+
+.foco-name {
+  display: block;
+  color: var(--light);
+  font-size: clamp(1rem, 1.7vw, 1.25rem);
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.foco-desc {
+  font-size: clamp(0.82rem, 1.2vw, 0.96rem);
+  color: var(--dim);
+  line-height: 1.5;
+}
+
+.foco-data-note {
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  color: var(--light);
+  line-height: 1.4;
+  margin-top: 0.4rem;
+}
+
+.foco-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+}
+
+/* ============================================
    SLIDE 12 — MAPA + DATOS
    ============================================ */
 .map-col {
