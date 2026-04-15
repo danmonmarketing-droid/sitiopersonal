@@ -26,7 +26,7 @@
     <!-- SLIDE 1: OBJETIVO -->
     <section class="slide slide--dark">
       <div class="slide__inner">
-        <div class="slide-label">Objetivo</div>
+        <div class="slide-label slide-label--hero">Objetivo</div>
         <p class="slide-body">
           Determinar las <span class="accent">micro-zonas más idóneas</span> dentro del Valle de Aburrá para la sede ambulatoria del Hospital Pablo Tobón Uribe.
         </p>
@@ -45,28 +45,56 @@
 
     <!-- SLIDE 2: CONTEXTO -->
     <section class="slide slide--dark">
-      <div class="slide__inner">
-        <div class="slide-label">Contexto</div>
-        <h2 class="slide-title">Medellín</h2>
-        <div class="stats-grid">
-          <div class="stat-block">
-            <p class="stat-label">Estratos objetivo</p>
-            <p class="stat-value accent">5 y 6</p>
+      <div class="slide__inner slide__inner--split">
+        <div class="split-col" style="justify-content:center; gap:1.4rem;">
+          <div class="slide-label slide-label--hero">Contexto</div>
+          <div class="funnel">
+            <div class="funnel-step" style="--fw:100%">
+              <div class="funnel-bar">
+                <span class="funnel-name">Habitantes en Medellín</span>
+                <span class="funnel-num accent">—</span>
+              </div>
+            </div>
+            <div class="funnel-chevron">↓</div>
+            <div class="funnel-step" style="--fw:82%">
+              <div class="funnel-bar">
+                <span class="funnel-name">Habitantes estratos 5 y 6</span>
+                <span class="funnel-num accent">—</span>
+              </div>
+            </div>
+            <div class="funnel-chevron">↓</div>
+            <div class="funnel-step" style="--fw:65%">
+              <div class="funnel-bar">
+                <span class="funnel-name">Barrios analizados (estratos 5 y 6)</span>
+                <span class="funnel-num accent">—</span>
+              </div>
+            </div>
+            <div class="funnel-chevron">↓</div>
+            <div class="funnel-step" style="--fw:48%">
+              <div class="funnel-bar">
+                <span class="funnel-name">Selección de barrios a analizar</span>
+                <span class="funnel-num accent">—</span>
+              </div>
+            </div>
           </div>
-          <div class="stat-block">
-            <p class="stat-label">Habitantes estratos 5–6</p>
-            <p class="stat-value accent">—</p>
-            <p class="stat-note">[dato por completar]</p>
-          </div>
-          <div class="stat-block">
-            <p class="stat-label">Predios analizados</p>
-            <p class="stat-value accent">—</p>
-            <p class="stat-note">[dato por completar]</p>
-          </div>
-          <div class="stat-block">
-            <p class="stat-label">Índice IRS</p>
-            <p class="stat-value accent">0–100</p>
-            <p class="stat-note">Puntuación compuesta<br>de 5 variables ponderadas</p>
+        </div>
+        <div class="split-col funnel-right">
+          <p class="slide-label">Outputs del análisis</p>
+          <div class="funnel-outputs">
+            <div class="funnel-output">
+              <span class="accent funnel-output-arrow">→</span>
+              <div>
+                <strong>Predios</strong>
+                <p class="dim">[dato por completar]</p>
+              </div>
+            </div>
+            <div class="funnel-output">
+              <span class="accent funnel-output-arrow">→</span>
+              <div>
+                <strong>Índice IRS</strong>
+                <p class="dim">Puntuación 0–100 por zona candidata</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -75,8 +103,8 @@
     <!-- SLIDE 3: FÓRMULA -->
     <section class="slide slide--dark">
       <div class="slide__inner">
-        <div class="slide-label">Metodología</div>
-        <h2 class="slide-title">Cada zona recibe un puntaje de 0 a 100</h2>
+        <div class="slide-label slide-label--hero">Metodología</div>
+        <p class="slide-subtitle">Cada zona recibe un puntaje de 0 a 100</p>
         <div class="formula-block">
           <p class="formula-eq">Score&nbsp;=&nbsp;<span class="accent">A×25</span> + <span class="accent">D×25</span> + <span class="accent">C×20</span> + <span class="accent">E×15</span> + <span class="accent">Vis×15</span></p>
         </div>
@@ -144,12 +172,12 @@
           </thead>
           <tbody>
             <tr class="row--highlight">
-              <td>1. Las Palmas Bajo</td>
+              <td>1. Las Palmas Bajo<sup>*</sup></td>
               <td>92</td><td>93</td><td>78</td><td>88</td><td>85</td>
               <td class="total accent-bold">88</td>
             </tr>
             <tr>
-              <td>2. Palmas Medio</td>
+              <td>2. Palmas Medio<sup>*</sup></td>
               <td>85</td><td>91</td><td>65</td><td>55</td><td>78</td>
               <td class="total">77</td>
             </tr>
@@ -169,13 +197,14 @@
               <td class="total">68</td>
             </tr>
             <tr>
-              <td>6. Las Palmas Alto</td>
+              <td>6. Las Palmas Alto<sup>*</sup></td>
               <td>42</td><td>52</td><td>90</td><td>20</td><td>30</td>
               <td class="total total--low">49</td>
             </tr>
           </tbody>
         </table>
         <p class="table-note">Las Palmas Bajo lidera con <span class="accent">88/100</span>. Palmas Medio es #2 (77). Envigado #3 (74). Milla de Oro baja al #4 por su competencia feroz y baja accesibilidad.</p>
+        <p class="table-footnote"><sup>*</sup> <strong>Palmas Bajo:</strong> San Diego–Colegiatura &nbsp;·&nbsp; <strong>Palmas Medio:</strong> Colegiatura–conexión Balsos &nbsp;·&nbsp; <strong>Palmas Alto:</strong> conexión Balsos–Santa Helena</p>
       </div>
     </section>
 
@@ -183,8 +212,8 @@
     <section class="slide slide--dark">
       <div class="slide__inner slide__inner--split">
         <div class="split-col">
-          <div class="slide-label">Accesibilidad</div>
-          <h2 class="slide-title">Congestión vial<br>en hora pico</h2>
+          <div class="slide-label slide-label--hero">Accesibilidad</div>
+          <p class="slide-subtitle">Congestión vial en hora pico</p>
           <div class="speed-block">
             <div class="speed-item">
               <p class="speed-label">Av. El Poblado</p>
@@ -199,7 +228,7 @@
           </div>
         </div>
         <div class="split-col">
-          <p class="split-label">¿Cuánto me demoro en carro a Palmas Bajo?</p>
+          <p class="split-label split-label--strong">¿Cuánto me demoro en carro a Palmas Bajo?</p>
           <table class="data-table">
             <thead>
               <tr><th>Origen</th><th>Tiempo</th></tr>
@@ -498,7 +527,7 @@
         <img class="logo" src="logo-basica.png" alt="Básica">
         <div class="cover-content">
           <p class="cover-tag">Hospital Pablo Tobón Uribe</p>
-          <h2 class="cover-title" style="font-size: clamp(2.2rem, 5vw, 4.5rem);">Proyecto<br>Ambulatorio</h2>
+          <h2 class="cover-title">Proyecto<br>Ambulatorio</h2>
           <p class="cover-subtitle">Análisis de Localización · Valle de Aburrá</p>
         </div>
       </div>
